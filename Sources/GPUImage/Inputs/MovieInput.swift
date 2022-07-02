@@ -4,6 +4,7 @@ import Metal
 public class MovieInput: ImageSource {
     public let targets = TargetContainer()
     public var runBenchmark = false
+    public var completionProcessing: (()->())?
     
     var videoTextureCache: CVMetalTextureCache?
     let yuvConversionRenderPipelineState:MTLRenderPipelineState
@@ -91,7 +92,9 @@ public class MovieInput: ImageSource {
     }
     
     func endProcessing() {
-        
+        if let completionProcessing = completionProcessing{
+           completionProcessing()
+        }
     }
     
     // MARK: -
