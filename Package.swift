@@ -26,7 +26,7 @@ let package = Package(
             dependencies: [],
             exclude: ["Metal"],
             resources: [
-                .copy("Resources")
+                .process("Resources")
             ])
     ]
 )

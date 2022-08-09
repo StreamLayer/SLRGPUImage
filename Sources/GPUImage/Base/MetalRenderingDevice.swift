@@ -38,9 +38,6 @@ public class MetalRenderingDevice {
                
                do {
                    let metalLibURL: URL = Bundle.module.url(forResource: "default", withExtension: "metallib", subdirectory: "Resources")!
-
-//                   let frameworkBundle = Bundle.module
-//                   let metalLibraryPath = frameworkBundle.path(forResource: "default", ofType: "metallib")!
                    self.shaderLibrary = try device.makeLibrary(URL: metalLibURL)
                } catch {
                    fatalError("Could not load library")
