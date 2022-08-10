@@ -7,4 +7,4 @@ for i in *.metal; do
 done
 
 xcrun -sdk iphoneos metallib *.air -o ../Resources/defaultiOS.metallib
-xcrun -sdk iphoneos metallib *.air -o ../Resources/defaultiOSSimulator.metallib
+xcrun -sdk iphonesimulator metallib *.air -o ../Resources/defaultiOSSimulator.metallib
