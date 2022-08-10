@@ -6,4 +6,5 @@ for i in *.metal; do
    xcrun -sdk iphoneos metal -c $i -o $(basename -s .metal $i).air
 done
 
-xcrun -sdk iphoneos metallib *.air -o ../Resources/default.metallib
+xcrun -sdk iphoneos metallib *.air -o ../Resources/defaultiOS.metallib
+xcrun -sdk iphoneos metallib *.air -o ../Resources/defaultiOSSimulator.metallib
