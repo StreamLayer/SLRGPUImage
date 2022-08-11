@@ -2,9 +2,22 @@
 
 cd ./Sources/GPUImage/Metal
 
-for i in *.metal; do
-   xcrun -sdk iphoneos metal -c $i -o $(basename -s .metal $i).air
-done
+for PLATFORM in "iOS" "iOSSimulator"; do
 
-xcrun -sdk iphoneos metallib *.air -o ../Resources/defaultiOS.metallib
-xcrun -sdk iphonesimulator metallib *.air -o ../Resources/defaultiOSSimulator.metallib
+    case $PLATFORM in
+    "iOS")
+    SDK="iphoneos"
+    ;;
+    "iOSSimulator")
+    SDK="iphonesimulator"
+    ;;
+    esac
+
+   for i in *.metal; do
+      xcrun -sdk $SDK metal -c $i -o $(basename -s .metal $i).air
+   done
+
+   xcrun -sdk $SDK metallib *.air -o ../Resources/default$PLATFORM.metallib
+   rm *.air
+
+done
