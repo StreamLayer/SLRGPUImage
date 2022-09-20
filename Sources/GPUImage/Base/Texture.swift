@@ -42,7 +42,7 @@ public class Texture {
                                                                          width: width,
                                                                          height: height,
                                                                          mipmapped: false)
-        textureDescriptor.usage = [.renderTarget, .shaderRead, .shaderWrite]
+        textureDescriptor.usage = [.renderTarget, .shaderRead]
         
         guard let newTexture = sharedMetalRenderingDevice.device.makeTexture(descriptor: textureDescriptor) else {
             fatalError("Could not create texture of size: (\(width), \(height))")
